@@ -1,0 +1,34 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Race", "Race\Race.csproj", "{2031E396-8B2C-427D-8F06-472A9025CE13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaceDay.Api", "RaceDay.Api\RaceDay.Api.csproj", "{7B1B5D60-6C5E-4D0B-9E43-1D2F0C6A9A11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Race.Tests", "Race.Tests\Race.Tests.csproj", "{A4C3E7F2-52B1-4F5E-8F3C-6E0D93B7C2D4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2031E396-8B2C-427D-8F06-472A9025CE13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2031E396-8B2C-427D-8F06-472A9025CE13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2031E396-8B2C-427D-8F06-472A9025CE13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2031E396-8B2C-427D-8F06-472A9025CE13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B1B5D60-6C5E-4D0B-9E43-1D2F0C6A9A11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B1B5D60-6C5E-4D0B-9E43-1D2F0C6A9A11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B1B5D60-6C5E-4D0B-9E43-1D2F0C6A9A11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B1B5D60-6C5E-4D0B-9E43-1D2F0C6A9A11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4C3E7F2-52B1-4F5E-8F3C-6E0D93B7C2D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4C3E7F2-52B1-4F5E-8F3C-6E0D93B7C2D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4C3E7F2-52B1-4F5E-8F3C-6E0D93B7C2D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4C3E7F2-52B1-4F5E-8F3C-6E0D93B7C2D4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

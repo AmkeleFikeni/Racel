@@ -1,0 +1,53 @@
+# RaceDay: MVC web app + Web API + SQL Server, all in Linux containers.
+#
+#   1. copy .env.example to .env and fill in the values
+#   2. docker compose up --build
+#   3. open http://localhost:8080   (API health check: http://localhost:5100/health)
+#
+# LocalDB / SQLEXPRESS on Windows are NOT reachable from a Linux container, so the
+# database runs as its own container here.
+services:
+  web:
+    build: ./Race
+    image: raceday-web
+    ports:
+      - "8080:8080"
+    environment:
+      ConnectionStrings__DefaultConnection: "Server=db,1433;Database=RaceDB;User Id=sa;Password=${SA_PASSWORD};TrustServerCertificate=True;MultipleActiveResultSets=true"
+      RaceDayApi__BaseUrl: "http://api:8080"
+      RaceDayApi__ApiKey: "${API_KEY}"
+      Seed__DemoData: "true"
+    depends_on:
+      db:
+        condition: service_healthy
+      api:
+        condition: service_started
+
+  api:
+    build: ./RaceDay.Api
+    image: raceday-api
+    ports:
+      - "5100:8080"
+    environment:
+      RaceDayApi__ApiKey: "${API_KEY}"
+      AzureStorage__ConnectionString: "${AZURE_STORAGE_CONNECTION_STRING}"
+      AzureStorage__ContainerName: "event-banners"
+
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "${SA_PASSWORD}"
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqldata:/var/opt/mssql
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools18/bin/sqlcmd -C -S localhost -U sa -P \"$$MSSQL_SA_PASSWORD\" -Q \"SELECT 1\" || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+
+volumes:
+  sqldata:

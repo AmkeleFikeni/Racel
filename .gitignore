@@ -1,0 +1,19 @@
+## Build output / IDE
+[Bb]in/
+[Oo]bj/
+.vs/
+.vscode/
+*.user
+*.suo
+TestResults/
+## Secrets - never commit these
+.env
+secrets.json
+appsettings.Production.json
+## Uploaded files and local databases
+Race/wwwroot/uploads/
+*.mdf
+*.ldf
+## OS
+.DS_Store
+Thumbs.db
